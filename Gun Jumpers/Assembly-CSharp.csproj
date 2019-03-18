@@ -60,7 +60,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\LocomotionSMB.cs" />
     <Compile Include="Assets\Scripts\CameraSwitch.cs" />
     <Compile Include="Assets\Scripts\LevelReset.cs" />
     <Compile Include="Assets\Scripts\PlaceTargetWithMouse.cs" />
