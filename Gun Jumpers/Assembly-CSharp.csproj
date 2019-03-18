@@ -53,6 +53,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\GunScript.cs" />
+     <Compile Include="Assets\PlayerController.cs" />
+     <Compile Include="Assets\RocketScript.cs" />
      <Compile Include="Assets\Scripts\CameraSwitch.cs" />
      <Compile Include="Assets\Scripts\LevelReset.cs" />
      <Compile Include="Assets\Scripts\PlaceTargetWithMouse.cs" />
