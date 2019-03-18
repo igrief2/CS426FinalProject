@@ -1,0 +1,6 @@
+Schedule and deliverable:
+
+basic multiplayer network, 2 players spawn in -- Mon by 11pm (estimate: 3 hrs)
+player health and gun damage -- Tues by 4pm (estimate: 5 hr)
+win condition -- Tues by 7pm (estimate: 2 hr)
+help get everything put together -- Tues by 9pm (estimate: 2 hr)
