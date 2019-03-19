@@ -1,0 +1,4 @@
+* Small arena with some obstacles   				(Estimate by Monday night) 4 hrs
+* Spawn points  						(Estimate by Monday night) 1 hr
+* Find assets for weapons, characters, and map details  	(Estimate by Monday night) 2-3 hrs
+* Make physics material so characters can slide across map  	(Estimate by Monday night) 2 hrs

@@ -1,0 +1,6 @@
+Schedule and deliverable:
+
+basic gun physics prototype -- Mon by 10am (estimate: 5 hrs)
+player health and gun damage -- Mon by 6pm (estimate: 1 hr)
+rocket physics -- Tues by 3pm (estimate: 3 hr)
+help get everything put together -- Tues by 9pm (estimate: 2 hr)
