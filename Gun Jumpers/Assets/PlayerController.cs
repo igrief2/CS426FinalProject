@@ -24,7 +24,6 @@ public class PlayerController : MonoBehaviour
 	private bool m_cursorIsLocked = true;
 	[SerializeField] private GameObject head;
 	[SerializeField] private GameObject gun;
-
 	float curRot = 0f;
 
 
