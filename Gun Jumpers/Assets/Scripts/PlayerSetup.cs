@@ -1,9 +1,11 @@
 ﻿using UnityEngine;
 using UnityEngine.Networking;
 
+[RequireComponent(typeof(PlayerManager))]
 public class PlayerSetup : NetworkBehaviour
 {
     [SerializeField] Behaviour[] componentsToDisable;
+    [SerializeField] string remoteLayerName = "RemotePlayer";
 
     Camera sceneCamera;
 
@@ -12,10 +14,8 @@ public class PlayerSetup : NetworkBehaviour
     {
         if (!isLocalPlayer)
         {
-            for (int i = 0; i < componentsToDisable.Length; i++)
-            {
-                componentsToDisable[i].enabled = false;
-            }
+            DisableComponents();
+            AssignRemoteLayer();
         }
         else
         {
@@ -27,11 +27,35 @@ public class PlayerSetup : NetworkBehaviour
         }
     }
 
+    // Called everytime a local client connects
+    public override void OnStartClient()
+    {
+        base.OnStartClient();
+        string netID = GetComponent<NetworkIdentity>().netId.ToString();
+        PlayerManager player = GetComponent<PlayerManager>();
+        GameManager.RegisterPlayer(netID, player);
+    }
+
+    void AssignRemoteLayer()
+    {
+        gameObject.layer = LayerMask.NameToLayer(remoteLayerName);
+    }
+
+    void DisableComponents()
+    {
+        for (int i = 0; i < componentsToDisable.Length; i++)
+        {
+            componentsToDisable[i].enabled = false;
+        }
+    }
+
     private void OnDisable()
     {
         if (sceneCamera != null)
         {
             sceneCamera.gameObject.SetActive(true);
         }
+
+        GameManager.UnRegisterPlayer(transform.name);
     }
 }

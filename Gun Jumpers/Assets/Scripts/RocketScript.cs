@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
+using UnityEngine.Networking;
 
-public class RocketScript : MonoBehaviour
+public class RocketScript : NetworkBehaviour
 {
     // Start is called before the first frame update
     void Start()
@@ -15,6 +16,9 @@ public class RocketScript : MonoBehaviour
     }
 
 	void OnCollisionEnter(Collision col){
+
+        //Debug.Log("Player hit: " + col.gameObject.name);
+        
 		Explode();
 	}
 
