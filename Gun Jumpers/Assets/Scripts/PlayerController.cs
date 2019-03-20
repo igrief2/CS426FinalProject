@@ -1,10 +1,10 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-
 	private Transform t;
 	private Rigidbody rb;
 	private Vector3 rotation = Vector3.zero;
@@ -18,7 +18,6 @@ public class PlayerController : MonoBehaviour
 	public float smoothTime = 5f;
 	public bool lockCursor = true;
 
-
 	private Quaternion m_GunTargetRot;
 	private Quaternion m_HeadTargetRot;
 	private bool m_cursorIsLocked = true;
@@ -26,7 +25,7 @@ public class PlayerController : MonoBehaviour
 	[SerializeField] private GameObject gun;
 	float curRot = 0f;
 
-
+    [SerializeField] private GunScript g;
 
     // Start is called before the first frame update
     void Start()
@@ -36,7 +35,7 @@ public class PlayerController : MonoBehaviour
 		Cursor.visible = false; //hide mouse
 		Cursor.lockState = CursorLockMode.Locked; //keep mouse in center of window
 		rb = GetComponent<Rigidbody>();
-		t = GetComponent<Transform>();    
+		t = GetComponent<Transform>();
     }
 
 	void PerformRotation(){
@@ -56,9 +55,19 @@ public class PlayerController : MonoBehaviour
 		//from Brackeys video
 		float yRot = Input.GetAxisRaw("Mouse X");
 		rotation = new Vector3(0f, yRot, 0f) * XSensitivity;
+
+        if (Input.GetButtonDown("Fire1"))
+        {
+            if (g != null)
+            {
+                (float knockbackVeloc, Vector3 tf) = g.FireGun();
+                GetComponent<Rigidbody>().velocity -= tf * knockbackVeloc;
+            }
+        }
+      
     }
 
-	public void LookRotation()
+        public void LookRotation()
 	{
 		float xRot = Input.GetAxisRaw("Mouse Y") * YSensitivity;
 		m_GunTargetRot *= Quaternion.Euler (-xRot, 0f, 0f);
