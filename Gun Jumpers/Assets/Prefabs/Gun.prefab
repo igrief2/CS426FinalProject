@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6895188219575111805}
   - component: {fileID: 6895188219575111803}
   - component: {fileID: 6895188219575111802}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: BulletSpawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -87,7 +87,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6895188219960675155}
   - component: {fileID: 5533920598044598472}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Gun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -125,7 +125,7 @@ MonoBehaviour:
   bullet: {fileID: 776672942046909384, guid: 1522cf8315f611a45934d8a3b5a88938, type: 3}
   bulletSpawner: {fileID: 6895188219575111804}
   bulletVeloc: 30
-  knockbackVeloc: 5
+  knockbackVeloc: 7
 --- !u!1 &6895188220219151945
 GameObject:
   m_ObjectHideFlags: 0
@@ -137,7 +137,7 @@ GameObject:
   - component: {fileID: 6895188220219151990}
   - component: {fileID: 6895188220219151988}
   - component: {fileID: 6895188220219151991}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Barrel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
