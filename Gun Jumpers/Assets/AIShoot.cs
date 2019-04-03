@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class AIShoot : MonoBehaviour
 {
+	public AudioSource shoot;
 	[SerializeField] private GameObject bullet;
 	[SerializeField] private GameObject bulletSpawner;
 	[SerializeField] private GameObject barrel;
@@ -17,6 +18,7 @@ public class AIShoot : MonoBehaviour
 		GameObject newBullet = GameObject.Instantiate(bullet, bulletSpawner.transform.position, barrel.transform.rotation) as GameObject;
 		newBullet.GetComponent<Rigidbody>().velocity -= barrel.transform.up * bulletVeloc;
 		Invoke("ShootBullet", .5f); //calls shootBullet in .5 seconds
+		shoot.Play();
 	}
 
 	void OnDisable(){
