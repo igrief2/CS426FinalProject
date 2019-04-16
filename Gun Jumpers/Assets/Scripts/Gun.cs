@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-
+//okay yeah so this whole abstract gun class thing is terrible but it was the only thing i could think of at 2 am that worked 
+//basically every gun will override all of these methods so that they can be used in playercontroller
 public abstract class Gun : MonoBehaviour
 {
 	public virtual void reload(){}

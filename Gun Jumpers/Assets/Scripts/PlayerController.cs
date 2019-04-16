@@ -80,6 +80,14 @@ public class PlayerController : MonoBehaviour
             	GetComponent<Rigidbody>().velocity -= tf * knockbackVeloc;
             }
         }
+		if (Input.GetButton("Fire1")){
+			if (g != null){
+				if (g is RepeaterScript){
+					(float knockbackVeloc, Vector3 tf) = g.FireGun();
+					GetComponent<Rigidbody>().velocity -= tf * knockbackVeloc;
+				}
+			}
+		}
 		if (Input.GetButtonUp("Fire1"))
 		{
 			Debug.Log("player buttonup");
@@ -87,7 +95,7 @@ public class PlayerController : MonoBehaviour
 			if (g != null){
 				Debug.Log("player g not null 2");
 
-				if(g is ChargeGunScript || g is RepeaterScript){ //these two scripts need to know when fire1 is released
+				if(g is ChargeGunScript){ //this script needs to know when fire1 is released
 					Debug.Log("player chargegun");
 					(float knockbackVeloc, Vector3 tf) = g.EndFire();
 					GetComponent<Rigidbody>().velocity -= tf * knockbackVeloc;

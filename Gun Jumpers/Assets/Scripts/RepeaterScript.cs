@@ -10,10 +10,20 @@ public class RepeaterScript : Gun
 	[SerializeField] private GameObject bulletSpawner;
 	public float bulletVeloc = 25;
 	public float knockbackVeloc = 3;
+	public float rateOfFire = .2f; //rateOfFire seconds per bullet
 	public int ammo = 10;
 	public int maxAmmo = 10;
+	public float bulletSize = -.1f;
 	public float reloadSpeed = .4f; //reloadSpeed seconds per bullet
 	private bool reloading = false;
+	private float curTime = 0f;
+
+	void Start(){
+		reset();
+	}
+	void reset(){
+		curTime = 0f;
+	}
 
 	public override void reload(){
 		Debug.Log("reload method. ammo = " + ammo);
@@ -32,21 +42,25 @@ public class RepeaterScript : Gun
 		CancelInvoke("reload"); 
 	}
 
+
 	public override System.Tuple<float, Vector3> FireGun()
 	{
-		if(ammo > 0){ //if no ammo, nothing should happen  
-			Invoke("Charging", .2f);
+		if(ammo <= 0){ //if no ammo, nothing should happen  
+			return System.Tuple.Create(0f, Vector3.zero);
 		}
-		return System.Tuple.Create(0f, Vector3.zero); 
+		curTime += Time.deltaTime;
+		if(curTime >= rateOfFire){
+			ammo--;
+			GameObject newBullet = GameObject.Instantiate(bullet, bulletSpawner.transform.position, bulletSpawner.transform.rotation) as GameObject;
+			newBullet.GetComponent<Transform>().localScale += new Vector3(bulletSize, bulletSize, bulletSize);
+			newBullet.GetComponent<Transform>().localPosition += transform.forward; //* (bulletSize); 
+			newBullet.GetComponent<Rigidbody>().velocity += transform.forward * bulletVeloc;
+			reset();
+			return System.Tuple.Create(knockbackVeloc, transform.forward);
+		}
+		return System.Tuple.Create(0f, Vector3.zero);
+
 	}
 
-	private void Charging(){
-		
-	}
 
-	public override System.Tuple<float, Vector3> EndFire()
-	{
-		CancelInvoke("Charging");
-		return System.Tuple.Create(0f, Vector3.zero); //idk what to return here
-	}
 }
