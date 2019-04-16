@@ -14,6 +14,7 @@ public class GunScript : MonoBehaviour
 	public int maxAmmo = 5;
 	public float reloadSpeed = 1f; //1f second per bullet 
 	private bool reloading = false;
+	public float bulletSize = 0f;
 
     // Start is called before the first frame update
     void Start()
@@ -58,6 +59,8 @@ public class GunScript : MonoBehaviour
 		}
 		ammo--;
 		GameObject newBullet = GameObject.Instantiate(bullet, bulletSpawner.transform.position, bulletSpawner.transform.rotation) as GameObject;
+		newBullet.GetComponent<Transform>().localScale += new Vector3(bulletSize, bulletSize, bulletSize);
+		newBullet.GetComponent<Transform>().localPosition += transform.forward * ((float)bulletSize); 
 		newBullet.GetComponent<Rigidbody>().velocity += transform.forward * bulletVeloc;
         // return the knockbackVeloc so can handle the knockback in playerController /* TODO: Fix this so it is not so jumbled */
         return System.Tuple.Create(knockbackVeloc, transform.forward);
