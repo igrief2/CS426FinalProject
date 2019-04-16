@@ -17,10 +17,12 @@ public class LookTarget : MonoBehaviour
     void Update()
     {
 		//for some reason doing this using transform.LookAt and transform.rotation didn't work well, it would keep jittering
-		Vector3 relativePos = target.position - source.position; 
-		Quaternion rotation = Quaternion.LookRotation(relativePos, Vector3.up); //this gets us the rotation we'd get from using transform.LookAt
-		rotation *= Quaternion.Euler(addRotX, addRotY, addRotZ); //this adds this rotation to the curent rotation, gets us looking at our object
-		source.rotation = Quaternion.Slerp(source.rotation, rotation, Time.deltaTime * smooth); //go from transform.rotation to rotation
+		if(target != null){
+			Vector3 relativePos = target.position - source.position; 
+			Quaternion rotation = Quaternion.LookRotation(relativePos, Vector3.up); //this gets us the rotation we'd get from using transform.LookAt
+			rotation *= Quaternion.Euler(addRotX, addRotY, addRotZ); //this adds this rotation to the curent rotation, gets us looking at our object
+			source.rotation = Quaternion.Slerp(source.rotation, rotation, Time.deltaTime * smooth); //go from transform.rotation to rotation
+		}
     }
 
 	void OnDisable(){ //should reset rotation when script is disabled

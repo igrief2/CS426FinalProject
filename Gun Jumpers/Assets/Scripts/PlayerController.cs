@@ -38,6 +38,19 @@ public class PlayerController : MonoBehaviour
 		t = GetComponent<Transform>();
     }
 
+	void OnTriggerEnter(Collider collider){
+		//ASSUME GROUND OBJECTS HAVE A THIN TRIGGER LAYER 
+		if(collider.tag == "Ground"){ 
+			//reload!
+			g.reload();
+		}
+	}
+	void OnTriggerExit(Collider collider){
+		if(collider.tag == "Ground"){
+			g.stopReload();
+		}
+	}
+
 	void PerformRotation(){
 		rb.MoveRotation(rb.rotation * Quaternion.Euler(rotation));
 		LookRotation(); //this part is from the standard assets 
@@ -58,7 +71,7 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetButtonDown("Fire1"))
         {
-            if (g != null)
+            if (g != null) //g for gunscript -maybe try for other gun scripts as well
             {
                 (float knockbackVeloc, Vector3 tf) = g.FireGun();
                 GetComponent<Rigidbody>().velocity -= tf * knockbackVeloc;

@@ -12,6 +12,7 @@ public class BulletScript : MonoBehaviour
 	}
 
 	void OnCollisionEnter(Collision collision){
+		/*
 		Collider collider = collision.collider;
 		if(collider.tag == this.tag) { //im thinking the tags should be "team 1" and "team 2" or something
 			var damageable = collider.gameObject.GetComponent<Damageable>(); //check if damageable object (players) 
@@ -19,6 +20,8 @@ public class BulletScript : MonoBehaviour
 				damageable.Damage(damage);
 			}
 		}
+		*/
+
 		Despawn();
 	}
 
