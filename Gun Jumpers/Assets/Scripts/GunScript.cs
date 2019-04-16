@@ -12,7 +12,7 @@ public class GunScript : MonoBehaviour
 	public float knockbackVeloc = 5f;
 	public int ammo = 5;
 	public int maxAmmo = 5;
-	public int reloadSpeed = 1; //1 second per bullet 
+	public float reloadSpeed = 1f; //1f second per bullet 
 	private bool reloading = false;
 
     // Start is called before the first frame update

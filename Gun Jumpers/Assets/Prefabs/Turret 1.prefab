@@ -465,7 +465,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shoot: {fileID: 620271861}
-  bullet: {fileID: 776672942046909384, guid: 1522cf8315f611a45934d8a3b5a88938, type: 3}
+  bullet: {fileID: 5681309610263170702, guid: 84905f08472c8d348ae73777a5d51095, type: 3}
   bulletSpawner: {fileID: 1912148848}
   barrel: {fileID: 8974243506899041877}
   bulletVeloc: 15
