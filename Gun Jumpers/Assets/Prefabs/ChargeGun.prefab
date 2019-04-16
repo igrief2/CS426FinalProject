@@ -163,7 +163,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5761209685260558008}
-  - component: {fileID: 6669589149770741027}
+  - component: {fileID: 1245686644705947025}
   m_Layer: 9
   m_Name: ChargeGun
   m_TagString: Untagged
@@ -187,7 +187,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6669589149770741027
+--- !u!114 &1245686644705947025
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -196,13 +196,21 @@ MonoBehaviour:
   m_GameObject: {fileID: 5761209685260558009}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4a3a0ff356ad7c1449210118aa983924, type: 3}
+  m_Script: {fileID: 11500000, guid: b9cc05f0e3c6e8f4a8bf468fc54b2a54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   bullet: {fileID: 5681309610263170702, guid: 84905f08472c8d348ae73777a5d51095, type: 3}
   bulletSpawner: {fileID: 5761209684873938327}
-  bulletVeloc: 30
-  knockbackVeloc: 7
-  ammo: 5
-  maxAmmo: 5
-  reloadSpeed: 1
+  rateOfCharge: 0.1
+  chargeIncrement: 0.01
+  maxSize: 1.3
+  minSize: 0
+  maxDamage: 50
+  minDamage: 10
+  minBulletVeloc: 10
+  maxBulletVeloc: 15
+  minKnockbackVeloc: 5
+  maxKnockbackVeloc: 15
+  ammo: 100
+  maxAmmo: 100
+  reloadSpeed: 0.3

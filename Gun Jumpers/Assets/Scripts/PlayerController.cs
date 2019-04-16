@@ -25,7 +25,7 @@ public class PlayerController : MonoBehaviour
 	[SerializeField] private GameObject gun;
 	float curRot = 0f;
 
-    [SerializeField] private GunScript g;
+    [SerializeField] private Gun g;
 
     // Start is called before the first frame update
     void Start()
@@ -71,12 +71,29 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetButtonDown("Fire1"))
         {
+			Debug.Log("player buttondown");
+		
             if (g != null) //g for gunscript -maybe try for other gun scripts as well
             {
-                (float knockbackVeloc, Vector3 tf) = g.FireGun();
-                GetComponent<Rigidbody>().velocity -= tf * knockbackVeloc;
+				Debug.Log("player g not null 1");
+				(float knockbackVeloc, Vector3 tf) = g.FireGun();
+            	GetComponent<Rigidbody>().velocity -= tf * knockbackVeloc;
             }
         }
+		if (Input.GetButtonUp("Fire1"))
+		{
+			Debug.Log("player buttonup");
+
+			if (g != null){
+				Debug.Log("player g not null 2");
+
+				if(g is ChargeGunScript || g is RepeaterScript){ //these two scripts need to know when fire1 is released
+					Debug.Log("player chargegun");
+					(float knockbackVeloc, Vector3 tf) = g.EndFire();
+					GetComponent<Rigidbody>().velocity -= tf * knockbackVeloc;
+				}
+			}
+		}
       
     }
 
