@@ -50,7 +50,7 @@ public class PlayerUI : MonoBehaviour {
 	public void TogglePauseMenu ()
 	{
 		pauseMenu.SetActive(!pauseMenu.activeSelf);
-		PauseMenu.IsOn = pauseMenu.activeSelf; 
+		//PauseMenu.IsOn = pauseMenu.activeSelf; 
 	}
 
 	void SetHealthAmount (float _amount)
