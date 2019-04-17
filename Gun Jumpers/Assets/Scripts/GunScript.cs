@@ -33,6 +33,11 @@ public class GunScript : Gun
 		CancelInvoke("reload"); 
 	}
 
+	public override int GetAmmo(){
+		return ammo;
+	}
+
+
     public override System.Tuple<float, Vector3> FireGun()
     {
 		if(ammo <= 0){ //if no ammo, nothing should happen  

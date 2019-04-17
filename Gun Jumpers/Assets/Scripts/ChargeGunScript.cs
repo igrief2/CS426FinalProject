@@ -59,6 +59,10 @@ public class ChargeGunScript : Gun
 		CancelInvoke("reload"); 
 	}
 		
+	public override int GetAmmo(){
+		return ammo;
+	}
+
 
 	public override System.Tuple<float, Vector3> FireGun()
 	{

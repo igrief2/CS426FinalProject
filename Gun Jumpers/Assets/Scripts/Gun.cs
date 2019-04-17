@@ -14,4 +14,8 @@ public abstract class Gun : MonoBehaviour
 	public virtual System.Tuple<float, Vector3> EndFire(){
 		return System.Tuple.Create(0f, Vector3.zero); //this will also be overwritten
 	}
+	public virtual int GetAmmo(){
+		return 0;
+	}
+
 }

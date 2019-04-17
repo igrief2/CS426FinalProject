@@ -13,6 +13,10 @@ public class PlayerManager : NetworkBehaviour
     {
         SetDefaults();
     }
+		
+	public int GetHealth(){
+		return currentHealth;
+	}
 
     // Locally change current health and since it is a SyncVar, the server will update accross all clients
     public void TakeDamage(int damage)
