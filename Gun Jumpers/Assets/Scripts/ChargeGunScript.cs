@@ -27,6 +27,9 @@ public class ChargeGunScript : Gun
 	public float reloadSpeed = .3f; //reloadSpeed seconds per bullet
 	private bool reloading = false;
 	private float currentPercent = 0f;
+	public AudioSource chargeSound;
+	public AudioSource shootSound;
+	public AudioSource reloadSound;
 
 	// Start is called before the first frame update
 	void Start()
@@ -47,6 +50,7 @@ public class ChargeGunScript : Gun
 		if(reloading){ //honestly this is just so it waits for a bit before reloading the first time
 			if(ammo < maxAmmo){
 				ammo++;
+				reloadSound.Play();
 			}
 		}
 		else{
@@ -68,6 +72,7 @@ public class ChargeGunScript : Gun
 	{
 		Debug.Log("charge firegun");
 		if(ammo > 0){ 
+			chargeSound.Play();
 			Invoke("Charging", rateOfCharge);
 		}
 		return System.Tuple.Create(0f, Vector3.zero); 
@@ -100,9 +105,10 @@ public class ChargeGunScript : Gun
 			reset();
 			return System.Tuple.Create(0f, Vector3.zero);
 		}
+		shootSound.Play();
 		GameObject newBullet = GameObject.Instantiate(bullet, bulletSpawner.transform.position, bulletSpawner.transform.rotation) as GameObject;
 		newBullet.GetComponent<Transform>().localScale += new Vector3(bulletSize, bulletSize, bulletSize);
-		newBullet.GetComponent<Transform>().localPosition += transform.forward * ((float)bulletSize); 
+		newBullet.GetComponent<Transform>().localPosition += transform.forward * (((float)bulletSize * .5f) + 1f); 
 		newBullet.GetComponent<Rigidbody>().velocity += transform.forward * bulletVeloc;
 		// return the knockbackVeloc so can handle the knockback in playerController /* TODO: Fix this so it is not so jumbled */
 

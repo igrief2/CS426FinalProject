@@ -1,14 +1,22 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.Networking;
 
-public class BulletScript : MonoBehaviour
+public class BulletScript : NetworkBehaviour
 {
 	public float damage = 10f;
+	public AudioSource impactSound;
+	public bool isImpact = false;
 	// Start is called before the first frame update
 	void Start()
 	{
 		Invoke("Despawn", 5); //bullet will disappear in 5 seconds if it hasn't hit anything
+	}
+
+	void Update()
+	{
+		if(isImpact && !impactSound.isPlaying){
+			Destroy(this.gameObject);
+		}
 	}
 
 	void OnCollisionEnter(Collision collision){
@@ -28,6 +36,10 @@ public class BulletScript : MonoBehaviour
 
 	//despawn
 	void Despawn(){
-		Destroy(this.gameObject);
+		GetComponent<MeshRenderer>().enabled = false; //make it disappear
+		GetComponent<SphereCollider>().enabled = false; //stop it from double hitting
+		isImpact = true;
+		impactSound.Play();
+
 	}
 }

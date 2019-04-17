@@ -8,7 +8,9 @@ public class RocketScript : NetworkBehaviour
 	public float force = 50000f;
 	public float upwardsModifier = 0f;
 	public ForceMode forceMode = ForceMode.Force;
-	
+	public AudioSource explosionSound;
+	public ParticleSystem ps; 
+	private bool isExploded = false;
 
     // Start is called before the first frame update
     void Start()
@@ -19,7 +21,9 @@ public class RocketScript : NetworkBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+		if(isExploded && !explosionSound.isPlaying){
+			Destroy(this.gameObject);
+		}
     }
 
 	void OnCollisionEnter(Collision col){
@@ -33,6 +37,11 @@ public class RocketScript : NetworkBehaviour
 
 	//Boom
 	void Explode(){
+		GetComponent<MeshRenderer>().enabled = false; //make it disappear
+		GetComponent<CapsuleCollider>().enabled = false; //so it doesnt double hit 
+		GetComponent<Rigidbody>().isKinematic = true; //stops it from rotating
+		explosionSound.Play();
+		ps.Play();
 		Debug.Log("Explode method");
 		foreach(Collider collider in Physics.OverlapSphere(transform.position, radius)){ //from PushyPixels' Breakfast With Unity youtube series
 			if(collider.tag == "Player"){
@@ -45,6 +54,6 @@ public class RocketScript : NetworkBehaviour
 				}
 			}
 		}
-		Destroy(this.gameObject);
+		isExploded = true;
 	}
 }

@@ -15,12 +15,15 @@ public class GunScript : Gun
 	public float reloadSpeed = 1f; //reloadSpeed second per bullet 
 	private bool reloading = false;
 	public float bulletSize = 0f;
+	public AudioSource shootSound;
+	public AudioSource reloadSound;
 
 	public override void reload(){
 		Debug.Log("reload method. ammo = " + ammo);
 		if(reloading){ //honestly this is just so it waits for a bit before reloading the first time
 			if(ammo < maxAmmo){
 				ammo++;
+				reloadSound.Play();
 			}
 		}
 		else{
@@ -43,10 +46,11 @@ public class GunScript : Gun
 		if(ammo <= 0){ //if no ammo, nothing should happen  
 			return System.Tuple.Create(0f, Vector3.zero);
 		}
+		shootSound.Play();
 		ammo--;
 		GameObject newBullet = GameObject.Instantiate(bullet, bulletSpawner.transform.position, bulletSpawner.transform.rotation) as GameObject;
 		newBullet.GetComponent<Transform>().localScale += new Vector3(bulletSize, bulletSize, bulletSize);
-		newBullet.GetComponent<Transform>().localPosition += transform.forward * ((float)bulletSize); 
+		newBullet.GetComponent<Transform>().localPosition += transform.forward * (((float)bulletSize * .5f) + 1f); 
 		newBullet.GetComponent<Rigidbody>().velocity += transform.forward * bulletVeloc;
         // return the knockbackVeloc so can handle the knockback in playerController /* TODO: Fix this so it is not so jumbled */
         return System.Tuple.Create(knockbackVeloc, transform.forward);

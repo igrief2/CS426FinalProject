@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44824797, g: 0.49827397, b: 0.5755831, a: 1}
+  m_IndirectSpecularColor: {r: 0.4482475, g: 0.4982736, b: 0.5755819, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -191,7 +191,7 @@ GameObject:
   - component: {fileID: 50041658}
   m_Layer: 0
   m_Name: Front Air Blocks (1)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -279,7 +279,7 @@ GameObject:
   - component: {fileID: 90119810}
   m_Layer: 0
   m_Name: Back Air Blocks
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -806,6 +806,10 @@ PrefabInstance:
     - target: {fileID: 1731074965667440, guid: 14011817915f45a4fb405af1e5e6738e, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 1731074965667440, guid: 14011817915f45a4fb405af1e5e6738e, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 4243164379264858, guid: 14011817915f45a4fb405af1e5e6738e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1476,7 +1480,7 @@ GameObject:
   - component: {fileID: 404681286}
   m_Layer: 0
   m_Name: Back Air Blocks (1)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1530,6 +1534,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 4e11ef4f39bc65e44a4b0755ecac6ea1, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 4e11ef4f39bc65e44a4b0755ecac6ea1, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 4e11ef4f39bc65e44a4b0755ecac6ea1, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2084,6 +2092,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 4e11ef4f39bc65e44a4b0755ecac6ea1, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 4e11ef4f39bc65e44a4b0755ecac6ea1, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 4e11ef4f39bc65e44a4b0755ecac6ea1, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2926,6 +2938,10 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 40
       objectReference: {fileID: 0}
+    - target: {fileID: 1731074965667440, guid: 14011817915f45a4fb405af1e5e6738e, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     - target: {fileID: 4243164379264858, guid: 14011817915f45a4fb405af1e5e6738e, type: 3}
       propertyPath: m_LocalPosition.x
       value: 8.90313
@@ -3030,6 +3046,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 4e11ef4f39bc65e44a4b0755ecac6ea1, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 4e11ef4f39bc65e44a4b0755ecac6ea1, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 4e11ef4f39bc65e44a4b0755ecac6ea1, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3579,6 +3599,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 4e11ef4f39bc65e44a4b0755ecac6ea1, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 4e11ef4f39bc65e44a4b0755ecac6ea1, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 4e11ef4f39bc65e44a4b0755ecac6ea1, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4267,7 +4291,7 @@ GameObject:
   - component: {fileID: 1482632478}
   m_Layer: 0
   m_Name: Middle Air Blocks (1)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4913,6 +4937,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SFP_platform_hex_1x3 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1731074965667440, guid: 14011817915f45a4fb405af1e5e6738e, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     - target: {fileID: 4243164379264858, guid: 14011817915f45a4fb405af1e5e6738e, type: 3}
       propertyPath: m_LocalPosition.x
       value: -19.55687
@@ -5439,7 +5467,7 @@ GameObject:
   - component: {fileID: 1713528252}
   m_Layer: 0
   m_Name: Front Air Blocks
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5658,7 +5686,7 @@ GameObject:
   - component: {fileID: 1884326586}
   m_Layer: 0
   m_Name: Middle Air Blocks
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5712,6 +5740,10 @@ PrefabInstance:
     - target: {fileID: 1731074965667440, guid: 14011817915f45a4fb405af1e5e6738e, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 1731074965667440, guid: 14011817915f45a4fb405af1e5e6738e, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 4243164379264858, guid: 14011817915f45a4fb405af1e5e6738e, type: 3}
       propertyPath: m_LocalPosition.x

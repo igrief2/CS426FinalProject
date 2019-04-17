@@ -17,7 +17,8 @@ public class RepeaterScript : Gun
 	public float reloadSpeed = .4f; //reloadSpeed seconds per bullet
 	private bool reloading = false;
 	private float curTime = 0f;
-
+	public AudioSource shootSound;
+	public AudioSource reloadSound;
 	void Start(){
 		reset();
 	}
@@ -30,6 +31,7 @@ public class RepeaterScript : Gun
 		if(reloading){ //honestly this is just so it waits for a bit before reloading the first time
 			if(ammo < maxAmmo){
 				ammo++;
+				reloadSound.Play();
 			}
 		}
 		else{
@@ -54,10 +56,11 @@ public class RepeaterScript : Gun
 		}
 		curTime += Time.deltaTime;
 		if(curTime >= rateOfFire){
+			shootSound.Play();
 			ammo--;
 			GameObject newBullet = GameObject.Instantiate(bullet, bulletSpawner.transform.position, bulletSpawner.transform.rotation) as GameObject;
 			newBullet.GetComponent<Transform>().localScale += new Vector3(bulletSize, bulletSize, bulletSize);
-			newBullet.GetComponent<Transform>().localPosition += transform.forward; //* (bulletSize); 
+			newBullet.GetComponent<Transform>().localPosition += transform.forward * (((float)bulletSize * .5f) + 1f); 
 			newBullet.GetComponent<Rigidbody>().velocity += transform.forward * bulletVeloc;
 			reset();
 			return System.Tuple.Create(knockbackVeloc, transform.forward);

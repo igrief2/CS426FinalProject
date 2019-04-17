@@ -24,12 +24,16 @@ public class PlayerController : MonoBehaviour
 	[SerializeField] private GameObject head;
 	[SerializeField] private GameObject gun;
 	float curRot = 0f;
-
+	public AudioSource footstepSound;
+	public AudioSource spawnSound;
+	public AudioSource injurySound;
+	public AudioSource deathSound;
     [SerializeField] private Gun g;
 
     // Start is called before the first frame update
     void Start()
 	{	
+		spawnSound.Play();
 		m_GunTargetRot = gun.transform.localRotation;
 		m_HeadTargetRot = head.transform.localRotation;
 		Cursor.visible = false; //hide mouse
@@ -43,6 +47,7 @@ public class PlayerController : MonoBehaviour
 		if(collider.tag == "Ground"){ 
 			//reload!
 			g.reload();
+			footstepSound.Play();
 		}
 	}
 	void OnTriggerExit(Collider collider){
