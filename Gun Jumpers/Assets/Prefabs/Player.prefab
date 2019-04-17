@@ -350,6 +350,8 @@ MonoBehaviour:
   - {fileID: 3651818094676532377}
   - {fileID: 1605982464813991669}
   remoteLayerName: RemotePlayer
+  playerUIPrefab: {fileID: 6182101867586866120, guid: ffa04e2dc8113524b97f8ddf194d6c63,
+    type: 3}
 --- !u!114 &1605982464813991669
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -364,12 +366,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weapon:
     name: Rocket
-    damage: 10
+    damage: 50
     range: 100
   cam: {fileID: 3651818092660311559}
   mask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 1335
 --- !u!114 &8794597371624087118
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -382,6 +384,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b284329c2b5c87841911cc6e618fba24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxHealth: 100
+  disableOnDeath:
+  - {fileID: 3651818094676532377}
+  - {fileID: 1605982464813991669}
 --- !u!114 &513851115813411318
 MonoBehaviour:
   m_ObjectHideFlags: 0
