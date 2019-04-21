@@ -6,6 +6,9 @@ public class PlayerSetup : NetworkBehaviour
 {
     [SerializeField] Behaviour[] componentsToDisable;
     [SerializeField] string remoteLayerName = "RemotePlayer";
+    [SerializeField] GameObject playerUIPrefab;
+
+    private GameObject playerUIInstance;
 
     Camera sceneCamera;
 
@@ -24,7 +27,13 @@ public class PlayerSetup : NetworkBehaviour
             {
                 sceneCamera.gameObject.SetActive(false);
             }
+
+            // Create player UI
+            playerUIInstance = Instantiate(playerUIPrefab);
+            playerUIInstance.name = playerUIPrefab.name;
         }
+
+        GetComponent<PlayerManager>().Setup();
     }
 
     // Called everytime a local client connects
@@ -51,6 +60,8 @@ public class PlayerSetup : NetworkBehaviour
 
     private void OnDisable()
     {
+        Destroy(playerUIInstance);
+
         if (sceneCamera != null)
         {
             sceneCamera.gameObject.SetActive(true);

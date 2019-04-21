@@ -22,6 +22,9 @@ public class PlayerShoot : NetworkBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (PauseMenuScript.isOn)
+            return;
+
         if (Input.GetButtonDown("Fire1"))
         {
             Shoot();
@@ -50,6 +53,6 @@ public class PlayerShoot : NetworkBehaviour
         //Debug.Log(playerID + " has been shot.");
 
         PlayerManager player = GameManager.GetPlayer(playerID);
-        player.TakeDamage(damage);
+        player.RpcTakeDamage(damage);
     }
 }
