@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: CenterMat
-  m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
+  m_Shader: {fileID: 4800000, guid: 561b93e6d622d0f41841525afad02889, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -67,7 +67,9 @@ Material:
     - _Mode: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.02
+    - _RimPower: 8
     - _SmoothnessTextureChannel: 0
+    - _Spec: 0.03
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _UVSec: 0
@@ -75,3 +77,5 @@ Material:
     m_Colors:
     - _Color: {r: 0.3909857, g: 0.41509432, b: 0.072445706, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
+    - _RimColor: {r: 0.26, g: 0.19, b: 0.16, a: 0}
+    - _SpecColor: {r: 0.13740659, g: 0.754717, b: 0.11747954, a: 0.5}
