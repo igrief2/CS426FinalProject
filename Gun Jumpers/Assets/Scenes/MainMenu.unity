@@ -4615,7 +4615,9 @@ MonoBehaviour:
     )\r\nFootsteps-Tile-03.wav by D W ( https://freesound.org/people/D%20W/sounds/458285/
     )\r\nMeaty Gunshot.wav by morganpurkis ( https://freesound.org/people/morganpurkis/sounds/396316/
     )\r\nGrunts Male.wav by Dirtjm ( https://freesound.org/people/Dirtjm/sounds/262279/
-    )\r\n"
+    )\r\nhint.wav by dland ( https://freesound.org/people/dland/sounds/320181/ )\r\nEnter
+    Button - Low Robotic by isteak ( https://freesound.org/people/isteak/sounds/442161/
+    )\r"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
   m_sharedMaterial: {fileID: 2164040, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
@@ -4684,12 +4686,12 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 1491125790}
-    characterCount: 1614
+    characterCount: 1779
     spriteCount: 0
-    spaceCount: 139
-    wordCount: 224
+    spaceCount: 154
+    wordCount: 249
     linkCount: 0
-    lineCount: 26
+    lineCount: 28
     pageCount: 1
     materialCount: 1
   m_havePropertiesChanged: 0
