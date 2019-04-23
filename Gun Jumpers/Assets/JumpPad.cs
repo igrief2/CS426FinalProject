@@ -9,7 +9,10 @@ public class JumpPad : MonoBehaviour
 
 	void OnTriggerEnter(Collider other){
 		if(other.gameObject.tag == "Player"){
-			other.GetComponent<Rigidbody>().velocity += this.transform.up * jumpVelocity;
+			Rigidbody rb = other.GetComponent<Rigidbody>();
+			rb.velocity = Vector3.zero;
+			rb.angularVelocity = Vector3.zero;
+			rb.velocity += this.transform.up * jumpVelocity;
 			woosh.Play();
 		}
 	}
