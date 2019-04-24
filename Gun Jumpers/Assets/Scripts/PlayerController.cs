@@ -29,10 +29,15 @@ public class PlayerController : MonoBehaviour
 	public AudioSource injurySound;
 	public AudioSource deathSound;
     [SerializeField] private Gun g;
+	public GameObject[] guns;
+	private bool switchingGuns = false;
+	private int gunIndex = 0;
 
     // Start is called before the first frame update
     void Start()
 	{	
+		g = guns[0].GetComponent<Gun>(); //initialize to the basic bitch gun
+		gun = guns[0];
 		spawnSound.Play();
 		m_GunTargetRot = gun.transform.localRotation;
 		m_HeadTargetRot = head.transform.localRotation;
@@ -45,6 +50,7 @@ public class PlayerController : MonoBehaviour
 	void OnTriggerEnter(Collider collider){
 		//ASSUME GROUND OBJECTS HAVE A THIN TRIGGER LAYER 
 		if(collider.tag == "Ground"){ 
+			Debug.Log("Reload start");
 			//reload!
 			g.reload();
 			footstepSound.Play();
@@ -52,6 +58,7 @@ public class PlayerController : MonoBehaviour
 	}
 	void OnTriggerExit(Collider collider){
 		if(collider.tag == "Ground"){
+			Debug.Log("Reload stop");
 			g.stopReload();
 		}
 	}
@@ -107,6 +114,36 @@ public class PlayerController : MonoBehaviour
 				}
 			}
 		}
+
+
+		if(Input.GetButtonDown("One")){
+			switchingGuns = true;
+			gunIndex = 0;
+		}
+		else if(Input.GetButtonDown("Two")){
+			switchingGuns = true;
+			gunIndex = 1;
+		}
+		else if(Input.GetButtonDown("Three")){
+			switchingGuns = true;
+			gunIndex = 2;
+		}
+		else if(Input.GetButtonDown("Four")){
+			switchingGuns = true;
+			gunIndex = 3;
+		}
+		else if(Input.GetButtonDown("Five")){
+			switchingGuns = true;
+			gunIndex = 4;
+		}
+		if(switchingGuns){
+			switchingGuns = false;
+			gun.SetActive(false); //when we did this every time sounds stopped working
+			g = guns[gunIndex].GetComponent<Gun>();
+			gun = guns[gunIndex];
+			gun.SetActive(true);
+		}
+
       
     }
 
