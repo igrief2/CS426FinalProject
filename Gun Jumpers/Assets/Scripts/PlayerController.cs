@@ -47,6 +47,10 @@ public class PlayerController : MonoBehaviour
 		t = GetComponent<Transform>();
     }
 
+	public Gun GetGun(){
+		return g;
+	}
+
 	void OnTriggerEnter(Collider collider){
 		//ASSUME GROUND OBJECTS HAVE A THIN TRIGGER LAYER 
 		if(collider.tag == "Ground"){ 
