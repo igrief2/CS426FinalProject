@@ -25,11 +25,13 @@ public class ChargeGunScript : Gun
 	public int ammo = 100;
 	public int maxAmmo = 100;
 	public float reloadSpeed = .3f; //reloadSpeed seconds per bullet
-	private bool reloading = false;
+	private float reloadTimer = 0f;
 	private float currentPercent = 0f;
 	public AudioSource chargeSound;
 	public AudioSource shootSound;
 	public AudioSource reloadSound;
+	[SerializeField] private Collider playerCol;
+
 
 	// Start is called before the first frame update
 	void Start()
@@ -45,22 +47,16 @@ public class ChargeGunScript : Gun
 		currentPercent = 0f;
 	}
 
+
 	public override void reload(){
-		Debug.Log("reload method. ammo = " + ammo);
-		if(reloading){ //honestly this is just so it waits for a bit before reloading the first time
+		reloadTimer += Time.deltaTime;
+		if(reloadTimer >= reloadSpeed){
 			if(ammo < maxAmmo){
+				reloadTimer -= reloadSpeed;
 				ammo++;
 				reloadSound.Play();
 			}
 		}
-		else{
-			reloading = true;
-		}
-		Invoke("reload", reloadSpeed); //invoke reload after the reloadSpeed 
-	}
-
-	public override void stopReload(){
-		CancelInvoke("reload"); 
 	}
 		
 	public override int GetAmmo(){
@@ -108,9 +104,10 @@ public class ChargeGunScript : Gun
 		shootSound.Play();
 		GameObject newBullet = GameObject.Instantiate(bullet, bulletSpawner.transform.position, bulletSpawner.transform.rotation) as GameObject;
 		newBullet.GetComponent<Transform>().localScale += new Vector3(bulletSize, bulletSize, bulletSize);
-		newBullet.GetComponent<Transform>().localPosition += transform.forward * (((float)bulletSize * .5f) + 1f); 
+		newBullet.GetComponent<Transform>().localPosition += transform.forward; //* (((float)bulletSize * .5f) + 1f); 
 		newBullet.GetComponent<Rigidbody>().velocity += transform.forward * bulletVeloc;
 		// return the knockbackVeloc so can handle the knockback in playerController /* TODO: Fix this so it is not so jumbled */
+		Physics.IgnoreCollision(newBullet.GetComponent<Collider>(), playerCol);
 
 		//MODIFY DAMAGE
 		newBullet.GetComponent<BulletScript>().damage = damage;

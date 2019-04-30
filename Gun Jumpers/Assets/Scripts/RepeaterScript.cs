@@ -15,10 +15,12 @@ public class RepeaterScript : Gun
 	public int maxAmmo = 10;
 	public float bulletSize = -.1f;
 	public float reloadSpeed = .4f; //reloadSpeed seconds per bullet
-	private bool reloading = false;
+	private float reloadTimer = 0f;
 	private float curTime = 0f;
 	public AudioSource shootSound;
 	public AudioSource reloadSound;
+	[SerializeField] private Collider playerCol;
+
 	void Start(){
 		reset();
 	}
@@ -26,22 +28,16 @@ public class RepeaterScript : Gun
 		curTime = 0f;
 	}
 
+
 	public override void reload(){
-		Debug.Log("reload method. ammo = " + ammo);
-		if(reloading){ //honestly this is just so it waits for a bit before reloading the first time
+		reloadTimer += Time.deltaTime;
+		if(reloadTimer >= reloadSpeed){
 			if(ammo < maxAmmo){
+				reloadTimer -= reloadSpeed;
 				ammo++;
 				reloadSound.Play();
 			}
 		}
-		else{
-			reloading = true;
-		}
-		Invoke("reload", reloadSpeed); //invoke reload after the reloadSpeed 
-	}
-
-	public override void stopReload(){
-		CancelInvoke("reload"); 
 	}
 
 	public override int GetAmmo(){
@@ -60,9 +56,11 @@ public class RepeaterScript : Gun
 			ammo--;
 			GameObject newBullet = GameObject.Instantiate(bullet, bulletSpawner.transform.position, bulletSpawner.transform.rotation) as GameObject;
 			newBullet.GetComponent<Transform>().localScale += new Vector3(bulletSize, bulletSize, bulletSize);
-			newBullet.GetComponent<Transform>().localPosition += transform.forward * (((float)bulletSize * .5f) + 1f); 
+			newBullet.GetComponent<Transform>().localPosition += transform.forward; //* (((float)bulletSize * .5f) + 1f); 
 			newBullet.GetComponent<Rigidbody>().velocity += transform.forward * bulletVeloc;
 			reset();
+			Physics.IgnoreCollision(newBullet.GetComponent<Collider>(), playerCol);
+
 			return System.Tuple.Create(knockbackVeloc, transform.forward);
 		}
 		return System.Tuple.Create(0f, Vector3.zero);
