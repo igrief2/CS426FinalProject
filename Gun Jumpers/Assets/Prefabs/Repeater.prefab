@@ -129,7 +129,7 @@ MonoBehaviour:
   bulletSpawner: {fileID: 3373867638148645200}
   bulletVeloc: 20
   knockbackVeloc: 3
-  rateOfFire: 0.2
+  rateOfFire: 0.1
   ammo: 10
   maxAmmo: 10
   bulletSize: 0
@@ -247,7 +247,7 @@ AudioSource:
     type: 2}
   m_audioClip: {fileID: 8300000, guid: e86089562e5ced34bbe0eaa1e8ffa6b2, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.2
   m_Pitch: 1
   Loop: 0
   Mute: 0
