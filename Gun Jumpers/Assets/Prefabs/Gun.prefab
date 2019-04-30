@@ -135,6 +135,7 @@ MonoBehaviour:
   bulletSize: 0
   shootSound: {fileID: 5050229990281243546}
   reloadSound: {fileID: 2456991257616377821}
+  playerCol: {fileID: 0}
 --- !u!82 &5050229990281243546
 AudioSource:
   m_ObjectHideFlags: 0
@@ -192,7 +193,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
