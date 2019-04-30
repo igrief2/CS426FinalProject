@@ -6,6 +6,7 @@ public class BulletScript : NetworkBehaviour
 	public float damage = 10f;
 	public AudioSource impactSound;
 	public bool isImpact = false;
+	public ParticleSystem ps; 
 	// Start is called before the first frame update
 	void Start()
 	{
@@ -14,7 +15,7 @@ public class BulletScript : NetworkBehaviour
 
 	void Update()
 	{
-		if(isImpact && !impactSound.isPlaying){
+		if(isImpact && !impactSound.isPlaying){ //deletes object when sound finishes playing
 			Destroy(this.gameObject);
 		}
 	}
@@ -38,6 +39,9 @@ public class BulletScript : NetworkBehaviour
 	void Despawn(){
 		GetComponent<MeshRenderer>().enabled = false; //make it disappear
 		GetComponent<SphereCollider>().enabled = false; //stop it from double hitting
+		GetComponent<Rigidbody>().isKinematic = true; //stops it from rotating
+		ps.Play();
+
 		isImpact = true;
 		impactSound.Play();
 

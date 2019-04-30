@@ -21,7 +21,7 @@ public class RocketScript : NetworkBehaviour
     // Update is called once per frame
     void Update()
     {
-		if(isExploded && !explosionSound.isPlaying){
+		if(isExploded && !explosionSound.isPlaying){ //deletes object when sound finishes playing
 			Destroy(this.gameObject);
 		}
     }
