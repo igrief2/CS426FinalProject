@@ -961,6 +961,21 @@ PrefabInstance:
       propertyPath: playerCol
       value: 
       objectReference: {fileID: 3651818094676532379}
+    - target: {fileID: 2585057157114814076, guid: 5b437506d70b14a448b68566aca6af28,
+        type: 3}
+      propertyPath: ammo
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 2585057157114814076, guid: 5b437506d70b14a448b68566aca6af28,
+        type: 3}
+      propertyPath: maxAmmo
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 2585057157114814076, guid: 5b437506d70b14a448b68566aca6af28,
+        type: 3}
+      propertyPath: reloadSpeed
+      value: 0.3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5b437506d70b14a448b68566aca6af28, type: 3}
 --- !u!1 &2784709880481598750 stripped
@@ -1064,6 +1079,31 @@ PrefabInstance:
       propertyPath: playerCol
       value: 
       objectReference: {fileID: 3651818094676532379}
+    - target: {fileID: 1245686644705947025, guid: de4014654bdbffb4eb5edf074285ca35,
+        type: 3}
+      propertyPath: minKnockbackVeloc
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1245686644705947025, guid: de4014654bdbffb4eb5edf074285ca35,
+        type: 3}
+      propertyPath: maxKnockbackVeloc
+      value: 35
+      objectReference: {fileID: 0}
+    - target: {fileID: 1245686644705947025, guid: de4014654bdbffb4eb5edf074285ca35,
+        type: 3}
+      propertyPath: reloadSpeed
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1245686644705947025, guid: de4014654bdbffb4eb5edf074285ca35,
+        type: 3}
+      propertyPath: ammo
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 1245686644705947025, guid: de4014654bdbffb4eb5edf074285ca35,
+        type: 3}
+      propertyPath: maxAmmo
+      value: 30
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: de4014654bdbffb4eb5edf074285ca35, type: 3}
 --- !u!1 &1237797607709994980 stripped
@@ -1160,6 +1200,21 @@ PrefabInstance:
       propertyPath: playerCol
       value: 
       objectReference: {fileID: 3651818094676532379}
+    - target: {fileID: 4856272043438823699, guid: 153543a0e5e433042b9d81a6565aa161,
+        type: 3}
+      propertyPath: reloadSpeed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4856272043438823699, guid: 153543a0e5e433042b9d81a6565aa161,
+        type: 3}
+      propertyPath: ammo
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4856272043438823699, guid: 153543a0e5e433042b9d81a6565aa161,
+        type: 3}
+      propertyPath: maxAmmo
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 153543a0e5e433042b9d81a6565aa161, type: 3}
 --- !u!1 &3727570287875468942 stripped
@@ -1256,6 +1311,21 @@ PrefabInstance:
       propertyPath: playerCol
       value: 
       objectReference: {fileID: 3651818094676532379}
+    - target: {fileID: 7952991658346599889, guid: 0a8523043b1fd314fa9fd755537697c7,
+        type: 3}
+      propertyPath: ammo
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7952991658346599889, guid: 0a8523043b1fd314fa9fd755537697c7,
+        type: 3}
+      propertyPath: maxAmmo
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7952991658346599889, guid: 0a8523043b1fd314fa9fd755537697c7,
+        type: 3}
+      propertyPath: reloadSpeed
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0a8523043b1fd314fa9fd755537697c7, type: 3}
 --- !u!1 &1542614131482808338 stripped
@@ -1352,6 +1422,21 @@ PrefabInstance:
       propertyPath: playerCol
       value: 
       objectReference: {fileID: 3651818094676532379}
+    - target: {fileID: 5533920598044598472, guid: b59c5c9a6e7c7124ea37c84393f4646d,
+        type: 3}
+      propertyPath: reloadSpeed
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5533920598044598472, guid: b59c5c9a6e7c7124ea37c84393f4646d,
+        type: 3}
+      propertyPath: ammo
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5533920598044598472, guid: b59c5c9a6e7c7124ea37c84393f4646d,
+        type: 3}
+      propertyPath: maxAmmo
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 6895188220219151945, guid: b59c5c9a6e7c7124ea37c84393f4646d,
         type: 3}
       propertyPath: m_IsActive
