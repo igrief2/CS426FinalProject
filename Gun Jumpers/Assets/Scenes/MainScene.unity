@@ -2125,6 +2125,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0315576d4bbe66449c3e58b182c6295, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  UI: {fileID: 0}
   matchSettings:
     respawnTime: 3
 --- !u!4 &783403600
@@ -5313,7 +5314,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 4.25, y: -0.0000036989936}
+  m_AnchoredPosition: {x: 4.25, y: 0.00000039700677}
   m_SizeDelta: {x: 91.5, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1968970583
@@ -5432,7 +5433,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1574341482}
   m_Direction: 2
   m_Value: 0
-  m_Size: 1
+  m_Size: 0.9999997
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
